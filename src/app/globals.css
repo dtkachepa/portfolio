@@ -1,0 +1,181 @@
+@import "tailwindcss";
+/* Devicon CSS is loaded via a <link> tag in app/layout.tsx (Tailwind v4 inlines
+   its @import, which would push a CSS @import past the legal position). */
+
+/* ============================================================
+   COLOR SYSTEM  (section 2)
+   Dark mode is the default. Light mode is applied via the
+   `.light` class on the root <html> element.
+   ============================================================ */
+
+/* :root {
+  --bg:       #070910;
+  --bg2:      #0C0E14;
+  --bg3:      #0F1220;
+  --border:   #141828;
+  --border2:  #203050;
+  --muted:    #1e2d45;
+  --muted2:   #304058;
+  --heading:  #DCE4F0;
+  --accent:   #60A8E8;
+  --accent2:  #A0C8F4;
+  --btn:      #1A5898;
+  --btnH:     #2268B0;
+  --foot:     #040509;
+  --card:     #0C0E14;
+} */
+:root {
+  --bg:      #111520;
+  --bg2:     #171C2C;
+  --bg3:     #181E2E;
+  --border:  #1E2638;
+  --border2: #2A3550;
+  --muted:   #3A5070;
+  --muted2:  #506888;
+  --heading:  #DCE4F0;
+  --accent:   #60A8E8;
+  --accent2:  #A0C8F4;
+  --btn:      #1A5898;
+  --btnH:     #2268B0;
+  --foot:    #0C0F18;
+  --card:     #0C0E14;
+}
+
+.light {
+  --bg:       #F0F4FA;
+  --bg2:      #FFFFFF;
+  --bg3:      #E4ECF6;
+  --border:   #C8D8EE;
+  --border2:  #90B0D0;
+  --muted:    #8AAAC8;
+  --muted2:   #507090;
+  --heading:  #1a3368;
+  --accent:   #1A5898;
+  --accent2:  #2268B0;
+  --btn:      #1A5898;
+  --btnH:     #0F3D6E;
+  --foot:     #E0E8F4;
+  --card:     #FFFFFF;
+}
+
+/* Expose mono font as a Tailwind theme token so `font-mono` => Courier New */
+@theme inline {
+  --font-mono: 'Courier New', monospace;
+  /* Custom 'xs' breakpoint (Tailwind v4 has none by default) so the
+     responsive hero classes (xs:text-[...]) resolve. */
+  --breakpoint-xs: 480px;
+}
+
+/* ============================================================
+   BASE STYLES  (section 3)
+   ============================================================ */
+html,
+body {
+  background: var(--bg);
+  color: var(--muted2);
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  line-height: 1.9;
+  transition: background 0.3s, color 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling for in-page nav-dot jumps */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   KEYFRAMES  (section 6.1)
+   ============================================================ */
+@keyframes ping {
+  0%        { transform: scale(1);   opacity: 1; }
+  75%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+@keyframes bounceDot {
+  0%, 100% { transform: scale(1); }
+  60%      { transform: scale(1.4); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes floatC {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+
+/* Shimmer on the outlined last name "Kachepa" (section 6.4).
+   The element carries data-text="Kachepa"; the ::after overlay
+   sweeps a gradient across the glyphs. */
+.shimmer-name {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent);
+}
+.shimmer-name::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  -webkit-text-stroke: 0;
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 200, 244, 0.6),
+    transparent
+  );
+  background-size: 600px 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3.2s linear 1.4s infinite;
+}
+
+/* Hero background: soft radial glow (section 7.0). */
+.hero-bg {
+  background-image:
+    radial-gradient(ellipse at 68% 50%, rgba(96, 168, 232, 0.045), transparent 60%);
+}
+/* Crosshatch grid lines at 44px spacing, 28% opacity, behind content. */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px, 44px 44px;
+  opacity: 0.28;
+  pointer-events: none;
+}
