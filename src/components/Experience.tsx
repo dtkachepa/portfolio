@@ -14,6 +14,16 @@ type Job = {
 
 const JOBS: Job[] = [
   {
+    years: '2026 — Present',
+    role: 'AI Developer',
+    company: 'MatchingDonors · US',
+    details: [
+      'Developing an AI-assisted platform for personalized transplant patient microsites and donor outreach',
+      'Working with LLMs, RAG, structured outputs, API integration, and human-in-the-loop AI workflows',
+    ],
+    active: true,
+  },
+  {
     years: '2019 — 2024',
     role: 'Electrical Engineer',
     company: 'Events Evolution · Harare, Zimbabwe',
@@ -22,7 +32,6 @@ const JOBS: Job[] = [
       'Maintained 95%+ uptime via real-time troubleshooting.',
       'Zero major safety incidents.',
     ],
-    active: true,
   },
   {
     years: 'Jun–Sep 2017',
