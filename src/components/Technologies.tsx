@@ -16,7 +16,7 @@ type Bubble = {
 const BUBBLES: Bubble[] = [
   { name: 'Python', icon: 'devicon-python-plain colored', anim: 'float', duration: '3.2s', delay: '0s' },
   { name: 'PyTorch', icon: 'devicon-pytorch-plain colored', anim: 'floatB', duration: '4.1s', delay: '0s' },
-  { name: 'TensorFlow', icon: 'devicon-tensorflow-original colored', anim: 'float', duration: '3.7s', delay: '0.4s' },
+  { name: 'Docker', icon: 'devicon-docker-plain colored', anim: 'float', duration: '3.7s', delay: '0.4s' },
   { name: 'Scikit-Learn', icon: 'devicon-scikitlearn-plain colored', anim: 'floatC', duration: '4.8s', delay: '0.2s' },
   { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark colored', anim: 'float', duration: '3.4s', delay: '0.6s' },
   { name: 'Pandas', icon: 'devicon-pandas-plain colored', anim: 'floatB', duration: '3.9s', delay: '0.1s' },
