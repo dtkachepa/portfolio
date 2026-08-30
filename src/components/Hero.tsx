@@ -14,7 +14,7 @@ export function Hero() {
         {/* LEFT COLUMN — content */}
         <div className="flex-1">
           {/* 1. Availability badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
@@ -23,16 +23,16 @@ export function Hero() {
               background: 'rgba(96,168,232,0.08)',
               borderColor: 'rgba(96,168,232,0.2)',
             }}
-          >
+          > */}
             {/* Ping dot */}
-            <span className="relative flex h-[7px] w-[7px]">
+            {/* <span className="relative flex h-[7px] w-[7px]">
               <span className="absolute inline-flex h-[7px] w-[7px] rounded-full bg-[var(--accent)] animate-[ping_1.4s_cubic-bezier(0,0,0.2,1)_infinite]" />
               <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-[var(--accent)]" />
             </span>
             <span className="font-mono text-[13px] uppercase tracking-[0.12em] text-[var(--accent)]">
               open to work
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* 2. Integral expression — [AI] [∫] [EE]  +  name as integrand */}
           <div className="mb-6 flex items-center gap-5">
