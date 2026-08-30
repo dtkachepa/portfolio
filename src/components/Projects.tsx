@@ -4,6 +4,9 @@ import { motion } from 'framer-motion'
 import { SectionHeader } from './SectionHeader'
 import { fadeUpVariants, staggerContainer, inViewport } from './motion'
 
+const DOSE_PREDICTION_REPO =
+  'https://github.com/dtkachepa/AI-and-Geometry-based-Dose-Prediction-for-Radiotherapy/tree/main'
+
 export function Projects() {
   return (
     <section id="projects" className="py-20">
@@ -17,10 +20,13 @@ export function Projects() {
           viewport={inViewport}
           className="grid grid-cols-1 gap-3 md:grid-cols-2"
         >
-          {/* Card 1 — FEATURED */}
-          <motion.article
+          {/* Card 1 — FEATURED (whole card links to the repo) */}
+          <motion.a
             variants={fadeUpVariants}
-            className="group relative overflow-hidden rounded-[10px] border bg-[var(--card)] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--border2)]"
+            href={DOSE_PREDICTION_REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-[10px] border bg-[var(--card)] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--border2)]"
             style={{ borderColor: 'rgba(96,168,232,0.3)' }}
           >
             {/* top gradient bar */}
@@ -37,18 +43,22 @@ export function Projects() {
                 <span className="relative inline-flex h-[6px] w-[6px] rounded-full bg-[var(--accent)]" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--accent)]">
-                reinforcement learning
+                medical imaging
               </span>
             </div>
             <h3 className="mb-2 text-[15px] font-bold text-[var(--heading)]">
-              RL Trading Agent — Kalshi
+              AI and Geometry based dose prediction for Radiotherapy
             </h3>
             <p className="mb-3 text-base font-normal leading-7 text-[var(--muted2)]">
-              PPO-based agent for hourly Bitcoin prediction markets. Custom reward shaping for
-              market dynamics and volatility regimes.
+              Enhanced a 3D medical imaging dose prediction framework in PyTorch by developing
+              region-sensitive and DVH-aware loss functions, reducing dose prediction MAE by 1.26%
+              on the OpenKBP head-and-neck radiotherapy dataset.
             </p>
-            <TagRow tags={['PPO', 'PyTorch', 'Kalshi API', 'Gym']} color="var(--accent)" />
-          </motion.article>
+            <TagRow
+              tags={['PyTorch', 'Medical Imaging', 'Deep Learning', 'OpenKBP', 'Weights & Biases']}
+              color="var(--accent2)"
+            />
+          </motion.a>
 
           {/* Card 2 — Computer Vision */}
           <motion.article
@@ -87,7 +97,7 @@ export function Projects() {
               Tool-using chatbot with dynamic tool selection and multi-step autonomous task
               execution.
             </p>
-            <TagRow tags={['LLM', 'Tool use', 'Agents']} color="#7BBCE8" />
+            <TagRow tags={['LLM', 'Tool use', 'Agents']} color="var(--accent2)"/>
           </motion.article>
         </motion.div>
       </div>
